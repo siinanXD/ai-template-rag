@@ -1,0 +1,128 @@
+:root {
+  color: #111;
+  background: #f6f5f2;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.lede {
+  color: #444;
+  margin: 0 0 1.5rem;
+}
+
+form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+label {
+  font-size: 0.95rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #c8c4bb;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  width: fit-content;
+  padding: 0.55rem 1rem;
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+}
+
+button:disabled {
+  opacity: 0.55;
+}
+
+.error {
+  color: #8a1f1f;
+}
+
+.warn {
+  color: #6a4a12;
+}
+
+.note {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.card {
+  margin-top: 1.5rem;
+  padding: 1rem 1.1rem;
+  background: #fff;
+  border: 1px solid #d8d3c8;
+}
+
+.card p {
+  margin: 0 0 0.85rem;
+}
+
+.card strong {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 0.2rem;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0;
+  padding-top: 0.4rem;
+  border-top: 1px solid #ece8df;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.meta dt {
+  font-weight: 600;
+}
+
+.meta dd {
+  margin: 0.15rem 0 0;
+}

@@ -1,0 +1,125 @@
+{
+  "suite": "rag",
+  "description": "Deterministic grounded RAG contract. Vector retrieval only. No paid model calls.",
+  "cases": [
+    {
+      "id": "billing-overdue-invoice",
+      "input": "Is invoice INV-88421 overdue?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "INV-88421"},
+        {"kind": "regex", "value": "\"source_name\"\\s*:\\s*\"billing-policy\""},
+        {"kind": "json_path", "value": "retrieved_count"}
+      ],
+      "tags": ["billing", "identifier"]
+    },
+    {
+      "id": "billing-identifier-only",
+      "input": "What is the status of INV-88421?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "INV-88421"},
+        {"kind": "regex", "value": "billing-policy"}
+      ],
+      "tags": ["billing", "identifier"]
+    },
+    {
+      "id": "billing-refund-window",
+      "input": "How many days do customers have to request a refund?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "14 days"},
+        {"kind": "regex", "value": "billing-policy"}
+      ],
+      "tags": ["billing"]
+    },
+    {
+      "id": "support-password",
+      "input": "How do I reset my password?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "dashboard"},
+        {"kind": "regex", "value": "support-notes"}
+      ],
+      "tags": ["support"]
+    },
+    {
+      "id": "support-mfa",
+      "input": "Is MFA enabled by default?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "MFA"},
+        {"kind": "regex", "value": "support-notes"}
+      ],
+      "tags": ["support"]
+    },
+    {
+      "id": "sales-pro-price",
+      "input": "What is the Pro plan price?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "49"},
+        {"kind": "regex", "value": "sales-plans"}
+      ],
+      "tags": ["sales"]
+    },
+    {
+      "id": "sales-team-demo",
+      "input": "Can we get a demo of the Team plan?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "199"},
+        {"kind": "regex", "value": "sales-plans"}
+      ],
+      "tags": ["sales"]
+    },
+    {
+      "id": "legal-nda-owner",
+      "input": "Who reviews the NDA?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "legal@harborline.example"},
+        {"kind": "regex", "value": "legal-nda"}
+      ],
+      "tags": ["legal"]
+    },
+    {
+      "id": "legal-nda-sla",
+      "input": "How many business days does NDA review take?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "10 business days"},
+        {"kind": "regex", "value": "legal-nda"}
+      ],
+      "tags": ["legal"]
+    },
+    {
+      "id": "multi-chunk-invoice-and-refund",
+      "input": "Is INV-88421 overdue and what is the refund window?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": false},
+        {"kind": "regex", "value": "INV-88421"},
+        {"kind": "regex", "value": "billing-policy"}
+      ],
+      "tags": ["billing", "multi"]
+    },
+    {
+      "id": "abstain-weather",
+      "input": "What is the weather like in Berlin tomorrow?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": true},
+        {"kind": "regex", "value": "insufficient"}
+      ],
+      "tags": ["abstain"]
+    },
+    {
+      "id": "abstain-missing-fact",
+      "input": "Who is the CEO of Harborline?",
+      "checks": [
+        {"kind": "json_path", "value": "insufficient_context", "expected": true},
+        {"kind": "regex", "value": "insufficient"}
+      ],
+      "tags": ["abstain"]
+    }
+  ]
+}
