@@ -33,4 +33,4 @@ PostgreSQL stores:
 
 `agent-eval-harness` owns scoring and the regression gate. The deterministic target uses a hash embedder and a fake provider. Stored run files under `.evals/` contain the full query response — do not commit live runs of real customer questions.
 
-Reranking is implemented as a cheap token-overlap reorder of vector hits. It did not beat the vector baseline on the golden set, so `RERANK_ENABLED` defaults to false.
+Reranking is a cheap token-overlap hook that marks where a real reranker would plug in. It stays off by default: the golden set is too small for an ordering experiment to be conclusive, so the overlap score is not yet measurable as an improvement. If enabled later, it overwrites `retrieved_chunks[].score` with an overlap ratio.

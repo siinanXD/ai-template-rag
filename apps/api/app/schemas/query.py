@@ -22,6 +22,12 @@ class Citation(BaseModel):
     chunk_index: int
 
 
+class CitationRef(BaseModel):
+    """What the model emits. Server maps `ref` back to a retrieved chunk."""
+
+    ref: int = Field(ge=1)
+
+
 class RetrievedChunk(BaseModel):
     document_id: UUID
     source_name: str
@@ -35,7 +41,7 @@ class GroundedAnswer(BaseModel):
     answer: str = Field(min_length=1, max_length=4000)
     confidence: float = Field(ge=0, le=1)
     insufficient_context: bool
-    citations: list[Citation] = Field(default_factory=list)
+    citations: list[CitationRef] = Field(default_factory=list)
 
 
 class QueryResponse(BaseModel):

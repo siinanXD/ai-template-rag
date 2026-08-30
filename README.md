@@ -105,7 +105,7 @@ See `docs/ARCHITECTURE.md`.
 - Embeddings use `build_openai_client` from `ai-core`. They are not a second completion wrapper.
 - `agent-eval-harness` is the only eval runner.
 - Compose runs PostgreSQL + pgvector only.
-- Reranking stays off by default.
+- Reranking stays off by default; the golden set cannot yet measure whether overlap rerank helps.
 
 ## 10. Railway
 

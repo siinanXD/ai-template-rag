@@ -17,7 +17,7 @@ API environment:
 - `DATABASE_URL` (Railway Postgres plugin value is fine)
 - `OPENAI_API_KEY`
 - `OPENAI_MODEL` (optional, default `gpt-4o-mini`)
-- `OPENAI_EMBEDDING_MODEL` (optional, default `text-embedding-3-small`)
+- `OPENAI_EMBEDDING_MODEL` (optional, default `text-embedding-3-small`; 1536 dimensions, pinned by the migration)
 - `CORS_ORIGINS` (the web origin)
 - `RERANK_ENABLED` (optional, default `false`)
 - optional Langfuse keys

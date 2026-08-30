@@ -26,6 +26,22 @@ def test_document_insert_creates_chunks_and_embeddings(
     assert BILLING_DOC.split()[0] in " ".join(chunk.content for chunk in chunks)
 
 
+def test_duplicate_content_is_idempotent(client: TestClient, db_session: Session) -> None:
+    payload = {"source_name": "billing-policy", "text": BILLING_DOC}
+    first = client.post("/api/v1/documents", json=payload)
+    second = client.post(
+        "/api/v1/documents",
+        json={"source_name": "billing-policy-retry", "text": BILLING_DOC},
+    )
+    assert first.status_code == 200
+    assert second.status_code == 200
+    assert first.json()["id"] == second.json()["id"]
+    assert first.json()["content_hash"] == second.json()["content_hash"]
+    assert first.json()["source_name"] == second.json()["source_name"] == "billing-policy"
+    assert db_session.query(Document).count() == 1
+    assert db_session.query(Chunk).count() == first.json()["chunk_count"]
+
+
 def test_document_invalid_empty_text(client: TestClient) -> None:
     response = client.post("/api/v1/documents", json={"source_name": "x", "text": "   "})
     assert response.status_code == 422

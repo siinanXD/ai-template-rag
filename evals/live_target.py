@@ -11,6 +11,7 @@ from app.services.ingest import ingest_document
 from app.services.query import answer_question
 from evals.corpus import CORPUS
 from evals.db import memory_session
+from evals.target import _payload
 
 
 def build_target():
@@ -29,7 +30,7 @@ def build_target():
             for source_name, text in CORPUS:
                 asyncio.run(ingest_document(session, embedder, source_name, text))
             result = asyncio.run(answer_question(session, provider, embedder, settings, case.input))
-            return result.model_dump_json()
+            return _payload(result)
         finally:
             session.close()
 

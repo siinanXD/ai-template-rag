@@ -10,7 +10,7 @@ from app.core.dependencies import get_embedder, get_provider
 from app.core.settings import Settings
 from app.main import app
 from app.models.query import QueryRun
-from app.schemas.query import GroundedAnswer
+from app.schemas.query import CitationRef, GroundedAnswer
 from tests.conftest import (
     BILLING_DOC,
     ContextAwareProvider,
@@ -64,16 +64,10 @@ def test_citations_are_validated_against_retrieved_chunks(
 ) -> None:
     asyncio.run(seed_corpus(db_session, hash_embedder))
     invented = GroundedAnswer(
-        answer="Invoice INV-88421 is overdue.",
-        confidence=0.8,
+        answer="Invoice INV-88421 is overdue and the CEO is Jane Doe.",
+        confidence=0.95,
         insufficient_context=False,
-        citations=[
-            {
-                "document_id": "00000000-0000-0000-0000-000000000099",
-                "source_name": "invented",
-                "chunk_index": 99,
-            }
-        ],
+        citations=[CitationRef(ref=99)],
     )
     app.dependency_overrides[get_provider] = lambda: FakeProvider(
         generation.__class__(
@@ -88,7 +82,48 @@ def test_citations_are_validated_against_retrieved_chunks(
     )
     response = client.post("/api/v1/query", json={"question": "Is invoice INV-88421 overdue?"})
     assert response.status_code == 200
-    assert response.json()["citations"] == []
+    body = response.json()
+    assert body["citations"] == []
+    assert body["insufficient_context"] is True
+    assert "Jane Doe" not in body["answer"]
+    assert "insufficient" in body["answer"].lower()
+
+
+def test_valid_citation_ref_is_mapped_to_retrieved_chunk(
+    client: TestClient,
+    db_session: Session,
+    hash_embedder,
+    generation,
+) -> None:
+    asyncio.run(seed_corpus(db_session, hash_embedder))
+
+    class CitingProvider(FakeProvider):
+        async def complete_structured(self, system: str, user: str, schema: type):
+            parsed = GroundedAnswer(
+                answer="Invoice INV-88421 is overdue.",
+                confidence=0.9,
+                insufficient_context=False,
+                citations=[CitationRef(ref=1)],
+            )
+            return generation.__class__(
+                text=parsed.model_dump_json(),
+                provider=generation.provider,
+                model=generation.model,
+                latency_ms=generation.latency_ms,
+                usage=generation.usage,
+                cost=generation.cost,
+                parsed=parsed,
+            )
+
+    app.dependency_overrides[get_provider] = lambda: CitingProvider(generation)
+    response = client.post("/api/v1/query", json={"question": "Is invoice INV-88421 overdue?"})
+    assert response.status_code == 200
+    body = response.json()
+    assert body["insufficient_context"] is False
+    assert len(body["citations"]) == 1
+    assert body["citations"][0]["source_name"] == body["retrieved_chunks"][0]["source_name"]
+    assert body["citations"][0]["document_id"] == body["retrieved_chunks"][0]["document_id"]
+    assert body["citations"][0]["chunk_index"] == body["retrieved_chunks"][0]["chunk_index"]
 
 
 def test_raw_query_is_not_persisted(
