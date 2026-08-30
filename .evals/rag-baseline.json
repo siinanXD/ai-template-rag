@@ -1,0 +1,366 @@
+{
+  "suite": "rag",
+  "started_at": "2026-08-30T20:05:08.422407+00:00",
+  "providers": [
+    null
+  ],
+  "cases": 13,
+  "generation_score": 1.0,
+  "retrieval_score": 1.0,
+  "error_rate": 0.0,
+  "cost_eur": 0.0,
+  "duration_ms": 329,
+  "per_provider": {
+    "default": {
+      "generation": 1.0,
+      "retrieval": 1.0,
+      "error_rate": 0.0,
+      "cases": 13,
+      "cost_eur": 0.0
+    }
+  },
+  "results": [
+    {
+      "case_id": "billing-overdue-invoice",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 4,
+        "total": 4,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"b7f8c3e2-9614-460e-b38a-356354ad738b\",\"answer\":\"Invoice INV-88421 is overdue.\",\"confidence\":0.9,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"f2b6921a-5fb3-40c9-9b52-c52da9df5af0\",\"source_name\":\"billing-policy\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"f2b6921a-5fb3-40c9-9b52-c52da9df5af0\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.4724555912615341},{\"document_id\":\"518f8287-699f-40e5-92c5-e3676ebcb566\",\"source_name\":\"support-notes\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":5,\"retrieval_latency_ms\":4,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 54,
+      "weight": 1.0,
+      "tags": [
+        "billing",
+        "identifier"
+      ]
+    },
+    {
+      "case_id": "billing-identifier-only",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"46145995-6640-48c1-ac5a-23510246f50d\",\"answer\":\"Invoice INV-88421 is overdue.\",\"confidence\":0.9,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"0b70ca24-e966-4589-996d-f803a8cc4d8a\",\"source_name\":\"billing-policy\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"0b70ca24-e966-4589-996d-f803a8cc4d8a\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.37796447300922725},{\"document_id\":\"c76e4904-89b9-4077-999b-110edde5285f\",\"source_name\":\"support-notes\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":3,\"retrieval_latency_ms\":3,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 22,
+      "weight": 1.0,
+      "tags": [
+        "billing",
+        "identifier"
+      ]
+    },
+    {
+      "case_id": "billing-refund-window",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"f4c36a38-e584-469f-9101-a1bba029dbae\",\"answer\":\"Refunds are allowed within 14 days of payment.\",\"confidence\":0.88,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"f3d38daa-6c8a-4bf9-b6e0-e9c85c179ceb\",\"source_name\":\"billing-policy\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"f3d38daa-6c8a-4bf9-b6e0-e9c85c179ceb\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.2142857142857143},{\"document_id\":\"037f8844-55a6-4125-aae6-69a1a32c42be\",\"source_name\":\"legal-nda\",\"chunk_index\":0,\"score\":0.1210455065337605}],\"model\":\"eval-fake\",\"latency_ms\":3,\"retrieval_latency_ms\":3,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 22,
+      "weight": 1.0,
+      "tags": [
+        "billing"
+      ]
+    },
+    {
+      "case_id": "support-password",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"35f6b8f2-bbcb-4a1e-883e-0b00cf1a4af4\",\"answer\":\"Password resets happen in the dashboard.\",\"confidence\":0.86,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"02394d3f-6cc9-431d-b331-b11d258cad70\",\"source_name\":\"support-notes\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"02394d3f-6cc9-431d-b331-b11d258cad70\",\"source_name\":\"support-notes\",\"chunk_index\":0,\"score\":0.25400025400038106},{\"document_id\":\"c1c3a924-19e2-4a8b-9a2a-58d26012a3ec\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":3,\"retrieval_latency_ms\":3,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 25,
+      "weight": 1.0,
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "case_id": "support-mfa",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"fbdf5cbd-bb27-4b6e-807d-ba8ec1b35db2\",\"answer\":\"MFA is enabled by default after the April update.\",\"confidence\":0.87,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"5af93260-59b0-4608-ac0e-15e598b2001e\",\"source_name\":\"support-notes\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"5af93260-59b0-4608-ac0e-15e598b2001e\",\"source_name\":\"support-notes\",\"chunk_index\":0,\"score\":0.3592106040535498},{\"document_id\":\"39737ddf-abf1-427f-9357-2fe3d4c6af1a\",\"source_name\":\"legal-nda\",\"chunk_index\":0,\"score\":0.08006407690254358}],\"model\":\"eval-fake\",\"latency_ms\":3,\"retrieval_latency_ms\":3,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 28,
+      "weight": 1.0,
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "case_id": "sales-pro-price",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"0a9b03c1-2d0c-4dfb-b999-d72b7518ec7f\",\"answer\":\"The Pro plan is 49 USD per month.\",\"confidence\":0.9,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"8cb2c4ce-8b01-41ed-a200-e90ccee5e456\",\"source_name\":\"sales-plans\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"8cb2c4ce-8b01-41ed-a200-e90ccee5e456\",\"source_name\":\"sales-plans\",\"chunk_index\":0,\"score\":0.360667853866973},{\"document_id\":\"cc72d7a3-9897-4fe0-a5eb-9ff6b45bdb60\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":4,\"retrieval_latency_ms\":4,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 26,
+      "weight": 1.0,
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "case_id": "sales-team-demo",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"d3e3db43-b5d0-4028-8949-5339ff847ae3\",\"answer\":\"The Team plan is 199 USD per month and includes a demo.\",\"confidence\":0.88,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"97500d21-08e6-417f-b6a3-b942dd991173\",\"source_name\":\"sales-plans\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"97500d21-08e6-417f-b6a3-b942dd991173\",\"source_name\":\"sales-plans\",\"chunk_index\":0,\"score\":0.5410017808004595},{\"document_id\":\"d7707782-ca07-4660-9a06-d55558c99bf3\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":3,\"retrieval_latency_ms\":3,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 22,
+      "weight": 1.0,
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "case_id": "legal-nda-owner",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"fb6605f0-6fcb-478e-8461-4c646b19b691\",\"answer\":\"NDA review is handled by legal@harborline.example.\",\"confidence\":0.9,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"a1a803f0-1894-4414-b335-8806fc1c4e73\",\"source_name\":\"legal-nda\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"a1a803f0-1894-4414-b335-8806fc1c4e73\",\"source_name\":\"legal-nda\",\"chunk_index\":0,\"score\":0.3698001308168195},{\"document_id\":\"c7cfac9b-ec6c-45c5-8e6d-2b4043256512\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":3,\"retrieval_latency_ms\":3,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 22,
+      "weight": 1.0,
+      "tags": [
+        "legal"
+      ]
+    },
+    {
+      "case_id": "legal-nda-sla",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"44be3362-e8fc-4311-882c-10b162e08855\",\"answer\":\"Standard NDA review takes 10 business days.\",\"confidence\":0.86,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"ccf9fb33-7dd2-419d-bad1-ecb8ab429f92\",\"source_name\":\"legal-nda\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"ccf9fb33-7dd2-419d-bad1-ecb8ab429f92\",\"source_name\":\"legal-nda\",\"chunk_index\":0,\"score\":0.5095246653650681},{\"document_id\":\"6f33be10-baf2-4b11-83ae-61eabe100c06\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.20044593143431833}],\"model\":\"eval-fake\",\"latency_ms\":3,\"retrieval_latency_ms\":3,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 26,
+      "weight": 1.0,
+      "tags": [
+        "legal"
+      ]
+    },
+    {
+      "case_id": "multi-chunk-invoice-and-refund",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"dd557c1b-cef0-4121-9729-00e4e60d1fd9\",\"answer\":\"Invoice INV-88421 is overdue.\",\"confidence\":0.9,\"insufficient_context\":false,\"citations\":[{\"document_id\":\"22994656-8e30-40d0-87bc-d877624adef1\",\"source_name\":\"billing-policy\",\"chunk_index\":0}],\"retrieved_chunks\":[{\"document_id\":\"22994656-8e30-40d0-87bc-d877624adef1\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.33806170189140666},{\"document_id\":\"b0f7ca84-b459-4b87-a0a7-eefc1dc01ad1\",\"source_name\":\"support-notes\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":2,\"retrieval_latency_ms\":2,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 21,
+      "weight": 1.0,
+      "tags": [
+        "billing",
+        "multi"
+      ]
+    },
+    {
+      "case_id": "grounding-rejects-invented-citation",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 4,
+        "total": 4,
+        "failures": []
+      },
+      "retrieval": {
+        "score": 1.0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "missing": []
+      },
+      "output": "{\"id\":\"8edaf8f6-1dde-4803-aa0f-a40c690fb599\",\"answer\":\"The retrieved context is insufficient to answer this question.\",\"confidence\":0.0,\"insufficient_context\":true,\"citations\":[],\"retrieved_chunks\":[{\"document_id\":\"220e22dd-9d81-46bf-80d3-654b7fb80dad\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.2142857142857143},{\"document_id\":\"67035fc4-a1a0-4a7d-bfd6-c97af69ac9f8\",\"source_name\":\"support-notes\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":2,\"retrieval_latency_ms\":2,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 18,
+      "weight": 1.0,
+      "tags": [
+        "grounding",
+        "citations"
+      ]
+    },
+    {
+      "case_id": "abstain-weather",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "missing": []
+      },
+      "output": "{\"id\":\"34f04b5e-c4a9-42d2-9378-e082d4df9386\",\"answer\":\"The retrieved context is insufficient to answer this question.\",\"confidence\":0.2,\"insufficient_context\":true,\"citations\":[],\"retrieved_chunks\":[{\"document_id\":\"d0c0842a-0b08-463a-9dfa-dda788b96f10\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.0},{\"document_id\":\"c7b55d8d-61bb-4ea8-8308-3d4c097b90f4\",\"source_name\":\"support-notes\",\"chunk_index\":0,\"score\":0.0}],\"model\":\"eval-fake\",\"latency_ms\":2,\"retrieval_latency_ms\":2,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 18,
+      "weight": 1.0,
+      "tags": [
+        "abstain"
+      ]
+    },
+    {
+      "case_id": "abstain-missing-fact",
+      "provider": null,
+      "status": "ok",
+      "generation": {
+        "score": 1.0,
+        "passed": 3,
+        "total": 3,
+        "failures": []
+      },
+      "retrieval": {
+        "score": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "missing": []
+      },
+      "output": "{\"id\":\"283d9fd4-2db1-465e-bf5d-48ac2d05c78f\",\"answer\":\"The retrieved context is insufficient to answer this question.\",\"confidence\":0.2,\"insufficient_context\":true,\"citations\":[],\"retrieved_chunks\":[{\"document_id\":\"27dcf999-f51b-4ff9-a276-6736794c307a\",\"source_name\":\"billing-policy\",\"chunk_index\":0,\"score\":0.2672612419124244},{\"document_id\":\"fb8659dd-9950-4acf-b51c-9368c5228383\",\"source_name\":\"legal-nda\",\"chunk_index\":0,\"score\":0.22645540682891918}],\"model\":\"eval-fake\",\"latency_ms\":3,\"retrieval_latency_ms\":2,\"rerank_latency_ms\":null,\"generation_latency_ms\":1,\"input_tokens\":1,\"output_tokens\":1,\"estimated_cost_usd\":null,\"retrieved_count\":2,\"rerank_used\":false,\"created_at\":\"2026-08-30T20:05:08\"}",
+      "error": "",
+      "cost_eur": 0.0,
+      "latency_ms": 20,
+      "weight": 1.0,
+      "tags": [
+        "abstain"
+      ]
+    }
+  ]
+}
